@@ -1,0 +1,6 @@
+module Pods_CLX {
+  umbrella header "Pods-CLX-umbrella.h"
+
+  export *
+  module * { export * }
+}
