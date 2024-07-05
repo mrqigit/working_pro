@@ -81,6 +81,14 @@ class ViewController: UIViewController {
             [
                 "title": "二叉树",
                 "ctrl": BinaryTreeCtrl()
+            ],
+            [
+                "title": "贝壳-事件分发",
+                "ctrl": ConchCtrl()
+            ],
+            [
+                "title": "奔溃防护",
+                "ctrl": CrashHoolCtrl()
             ]
         ];
     }()

@@ -52,6 +52,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard let url = URLContexts.first?.url else { return }
+        UserDefaults.standard.setValue(url.scheme, forKey: "clx_sheme")
+      
+        if #available(iOS 16.0, *) {
+            UserDefaults.standard.setValue(url.host(), forKey: "clx_host")
+            UserDefaults.standard.setValue(url.query(), forKey: "clx_query")
+        } else {
+            // Fallback on earlier versions
+        }
+        UserDefaults.standard.synchronize()
+    }
 }
 
