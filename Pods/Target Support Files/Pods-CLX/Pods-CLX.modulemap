@@ -1,4 +1,4 @@
-module Pods_CLX {
+framework module Pods_CLX {
   umbrella header "Pods-CLX-umbrella.h"
 
   export *

@@ -9,15 +9,50 @@ import UIKit
 import SnapKit
 
 class ViewController: UIViewController {
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = UIColor.systemBlue // 设置背景色
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.white] // 设置标题文字颜色
+            navigationController?.navigationBar.standardAppearance = appearance
+            navigationController?.navigationBar.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
+        } else {
+            // Fallback on earlier versions
+            navigationController?.navigationBar.barTintColor = UIColor.systemBlue // 设置背景色
+            navigationController?.navigationBar.tintColor = UIColor.white // 设置标题和按钮颜色
+            navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white] // 设置标题文字颜色
+        }
+        
+        print("当前方法的名称是: \(#function)，类是: \(self.self)")
         
         view.addSubview(listView)
         listView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print("当前方法的名称是: \(#function)，类是: \(self.self)")
+        super.viewWillDisappear(animated)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        print("当前方法的名称是: \(#function)，类是: \(self.self)")
+        super.viewDidDisappear(animated)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        print("当前方法的名称是: \(#function)，类是: \(self.self)")
+        super.viewWillLayoutSubviews()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        print("当前方法的名称是: \(#function)，类是: \(self.self)")
+        super.viewDidLayoutSubviews()
     }
     
     lazy var listView: UITableView = {
@@ -89,6 +124,18 @@ class ViewController: UIViewController {
             [
                 "title": "奔溃防护",
                 "ctrl": CrashHoolCtrl()
+            ],
+            [
+                "title": "PHPicker",
+                "ctrl": PhotosViewController()
+            ],
+            [
+                "title": "排序算法",
+                "ctrl": SortAlgorithmCtrl()
+            ],
+            [
+                "title": "动画",
+                "ctrl": AnimationViewController()
             ]
         ];
     }()
