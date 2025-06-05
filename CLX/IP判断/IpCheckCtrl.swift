@@ -77,8 +77,37 @@ class IpCheckCtrl: UIViewController {
             return
         }
         /// 裁剪判断是否是4组
+        guard let list: [String] = inputFile.text?.components(separatedBy: ".") as? [String] else {
+            resultText.text = "ip地址格式不合法"
+            return
+        }
+        if list.count < 4 {
+            resultText.text = "ip地址长度不合法"
+            return
+        }
         
+        for item in list {
+            /// 判断是否三位数以内
+            if item.count > 3 {
+                resultText.text = "ip地址不合法，长度超出限制"
+                return
+            }
+            /// 判断是否是数字组成
+            if item.map({ char in
+                return char.isNumber
+            }).contains(where: {$0 == false}) == true {
+                resultText.text = "ip地址不合法，包含非数字字符"
+                return
+            }
+            /// 判断是否是[0,255]区间
+            let value: Int = Int(item) ?? -1
+            if value < 0 || value > 255 {
+                resultText.text = "ip地址不合法，区间超过[0,255]"
+                return
+            }
+        }
         
+        resultText.text = "恭喜💐，ip地址是合法的"
     }
         
     @objc
