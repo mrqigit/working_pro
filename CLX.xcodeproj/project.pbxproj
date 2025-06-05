@@ -11,6 +11,8 @@
 		6A01BBF82C1844F100C8EF51 /* TreeNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A01BBF72C1844F100C8EF51 /* TreeNode.swift */; };
 		6A0CFD892BF49DC800B8856F /* SparkTrajectoryCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0CFD882BF49DC800B8856F /* SparkTrajectoryCtrl.swift */; };
 		6A2149052DA7697600FAAD31 /* RippleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A2149042DA7697600FAAD31 /* RippleView.swift */; };
+		6A396DA42DF197A100479139 /* IpCheckCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A396DA32DF197A100479139 /* IpCheckCtrl.swift */; };
+		6A396DA72DF197CF00479139 /* ReversalStringCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A396DA62DF197CF00479139 /* ReversalStringCtrl.swift */; };
 		6A59E9422BFB277700960EA1 /* PriorityQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A59E9412BFB277700960EA1 /* PriorityQueue.swift */; };
 		6A6BBCC42DA3D270002E19BB /* SortAlgorithmCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6BBCC32DA3D270002E19BB /* SortAlgorithmCtrl.swift */; };
 		6A70AD6E2BF5EC34000C3374 /* ClassicFirework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A70AD522BF5EC34000C3374 /* ClassicFirework.swift */; };
@@ -87,6 +89,8 @@
 		6A01BBF72C1844F100C8EF51 /* TreeNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeNode.swift; sourceTree = "<group>"; };
 		6A0CFD882BF49DC800B8856F /* SparkTrajectoryCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkTrajectoryCtrl.swift; sourceTree = "<group>"; };
 		6A2149042DA7697600FAAD31 /* RippleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleView.swift; sourceTree = "<group>"; };
+		6A396DA32DF197A100479139 /* IpCheckCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IpCheckCtrl.swift; sourceTree = "<group>"; };
+		6A396DA62DF197CF00479139 /* ReversalStringCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReversalStringCtrl.swift; sourceTree = "<group>"; };
 		6A59E9412BFB277700960EA1 /* PriorityQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityQueue.swift; sourceTree = "<group>"; };
 		6A6BBCC32DA3D270002E19BB /* SortAlgorithmCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortAlgorithmCtrl.swift; sourceTree = "<group>"; };
 		6A70AD522BF5EC34000C3374 /* ClassicFirework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassicFirework.swift; sourceTree = "<group>"; };
@@ -219,6 +223,22 @@
 			path = Spark;
 			sourceTree = "<group>";
 		};
+		6A396DA22DF1978A00479139 /* IP判断 */ = {
+			isa = PBXGroup;
+			children = (
+				6A396DA32DF197A100479139 /* IpCheckCtrl.swift */,
+			);
+			path = "IP判断";
+			sourceTree = "<group>";
+		};
+		6A396DA52DF197A600479139 /* 字符串反转 */ = {
+			isa = PBXGroup;
+			children = (
+				6A396DA62DF197CF00479139 /* ReversalStringCtrl.swift */,
+			);
+			path = "字符串反转";
+			sourceTree = "<group>";
+		};
 		6A6BBCBF2DA3D21C002E19BB /* 排序算法 */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +341,8 @@
 				6AB1B82E2BEB5EF3005A1E6D /* ListTableViewCell.swift */,
 				6AFBDAD92BF3428800113659 /* PublicFunc.swift */,
 				6AB1B8342BEB5F41005A1E6D /* ViewController.swift */,
+				6A396DA52DF197A600479139 /* 字符串反转 */,
+				6A396DA22DF1978A00479139 /* IP判断 */,
 				6AD557362DA66B0E00B5475E /* 动画 */,
 				6A6BBCBF2DA3D21C002E19BB /* 排序算法 */,
 				6AD31DDF2CDC60E500FD61E1 /* PHPicker */,
@@ -689,8 +711,10 @@
 				6A2149052DA7697600FAAD31 /* RippleView.swift in Sources */,
 				6AA740022BF1B421003D6949 /* NSPredicateCtrl.swift in Sources */,
 				6ACF8BB92C1B1C0E00E8A782 /* ConchCtrl.swift in Sources */,
+				6A396DA72DF197CF00479139 /* ReversalStringCtrl.swift in Sources */,
 				6A70AD762BF5EC34000C3374 /* FountainSparkTrajectoryFactory.swift in Sources */,
 				6ABC3A402C06F58100D97974 /* RequestMode.swift in Sources */,
+				6A396DA42DF197A100479139 /* IpCheckCtrl.swift in Sources */,
 				6AAF8F682C36717C00577CD1 /* CrashHoolCtrl.swift in Sources */,
 				6AB1B8322BEB5EF3005A1E6D /* ListTableViewCell.swift in Sources */,
 				6A70AD7C2BF5EC34000C3374 /* SparkView.swift in Sources */,
