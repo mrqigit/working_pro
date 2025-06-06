@@ -8,6 +8,8 @@
 import UIKit
 
 class NSPredicateCtrl: UIViewController {
+    
+    var age: AgeEnum = .minors
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +47,7 @@ class NSPredicateCtrl: UIViewController {
     
     @objc
     func addAction() {
-        persons.append(Person(name: "MrQi\(persons.count + 1)号", age: 10 + persons.count))
+        persons.append(Person(name: "MrQi\(persons.count + 1)号", age: Int(arc4random_uniform(150))))
     }
     
     lazy var searchBtn: UIButton = {
@@ -54,51 +56,70 @@ class NSPredicateCtrl: UIViewController {
     
     @objc
     func searchAction() {
-        var pred = ""
-        switch segment.selectedSegmentIndex {
-        case 0:
-            pred = "SELF.age >= 18"
-            break
-        case 1:
-            pred = "SELF.age < 18"
-            break
-        case 2:
-            pred = "(SELF.age >= 13) AND (SELF.age <= 18)"
-            break
-        case 3:
-            pred = "SELF.age >= 65"
-            break
-        case 4:
-            pred = "(SELF.age >= 21) AND (SELF.age <= 30)"
-            break
-        case 5:
-            pred = "SELF.age >= 70"
-            break
-        default:
-            break
+        age = AgeEnum(rawValue: segment.selectedSegmentIndex) ?? .minors
+        let childrens = persons.filter({NSPredicate(format: age.format).evaluate(with:$0)})
+        childrens.forEach { (per) in
+            print("name:\(String(describing: per.name)),age:\(per.age)")
         }
-        persons.map { person in
-            if NSPredicate(format: pred).evaluate(with: person) {
-                print(person.toString())
-            }
-        }
-        
     }
     
     lazy var segment: UISegmentedControl = {
-        let ctrl = UISegmentedControl(items: ["而立","未冠","弱冠","花甲","不惑","古稀"])
+        let ctrl = UISegmentedControl(items: AgeEnum.allCase)
         ctrl.selectedSegmentIndex = 0
         return ctrl
     }()
 }
-//bool get isAdult => age >= 18;
-//
-//bool get isChild => age < 18;
-//
-//bool get isTeenager => age >= 13 && age <= 18;
-//
-//bool get isSeniorCitizen => age >= 65;
-//
-//bool get isYoungAdult => age >= 21 && age <= 30;
-//
-//bool get isElderly => age >= 70;
+
+protocol AgePredicate {
+    var format: String {get}
+    var tip: String {get}
+}
+
+enum AgeEnum: Int {
+    case minors
+    case teenagers
+    case adult
+    case young
+    case middleAged
+    case elderly
+}
+
+extension AgeEnum: AgePredicate {
+    var format: String {
+        switch self {
+        case .minors:
+            return "SELF.age < 18"
+        case .teenagers:
+            return "(SELF.age >= 13) AND (SELF.age <= 18)"
+        case .adult:
+            return "SELF.age >= 18"
+        case .young:
+            return "(SELF.age >= 18) AND (SELF.age <= 30)"
+        case .middleAged:
+            return "SELF.age >= 30 AND (SELF.age <= 50)"
+        case .elderly:
+            return "SELF.age >= 60"
+        }
+    }
+    
+    var tip: String {
+        switch self {
+        case .minors:
+            return "未成年"
+        case .teenagers:
+            return "青少年"
+        case .adult:
+            return "成年人"
+        case .young:
+            return "青年人"
+        case .middleAged:
+            return "中年人"
+        case .elderly:
+            return "老年人"
+        }
+    }
+    
+    static var allCase: [String] {
+        return [AgeEnum.minors,AgeEnum.teenagers,AgeEnum.adult,AgeEnum.young,AgeEnum.middleAged,AgeEnum.elderly,].map({$0.tip})
+    }
+}

@@ -43,6 +43,9 @@
 		6A7B87352BEB5E8700562881 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7B87342BEB5E8700562881 /* SceneDelegate.swift */; };
 		6A7B873C2BEB5E8800562881 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A7B873B2BEB5E8800562881 /* Assets.xcassets */; };
 		6A7B873F2BEB5E8800562881 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 6A7B873E2BEB5E8800562881 /* Base */; };
+		6A87CB712DF288CE00DBA443 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A87CB702DF288CE00DBA443 /* Regex.swift */; };
+		6A87CB742DF28A1D00DBA443 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A87CB732DF28A1D00DBA443 /* StringExtension.swift */; };
+		6A87CB762DF291F300DBA443 /* RegexEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A87CB752DF291F300DBA443 /* RegexEnum.swift */; };
 		6AA740022BF1B421003D6949 /* NSPredicateCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA740012BF1B421003D6949 /* NSPredicateCtrl.swift */; };
 		6AA740042BF1B52E003D6949 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA740032BF1B52E003D6949 /* Person.swift */; };
 		6AA740072BF1DB9D003D6949 /* NeedsLayoutCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA740062BF1DB9D003D6949 /* NeedsLayoutCtrl.swift */; };
@@ -123,6 +126,9 @@
 		6A7B873B2BEB5E8800562881 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A7B873E2BEB5E8800562881 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6A7B87402BEB5E8800562881 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A87CB702DF288CE00DBA443 /* Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		6A87CB732DF28A1D00DBA443 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		6A87CB752DF291F300DBA443 /* RegexEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexEnum.swift; sourceTree = "<group>"; };
 		6AA3DCE52C2431DB007993BA /* CLX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CLX.entitlements; sourceTree = "<group>"; };
 		6AA740012BF1B421003D6949 /* NSPredicateCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicateCtrl.swift; sourceTree = "<group>"; };
 		6AA740032BF1B52E003D6949 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -340,6 +346,8 @@
 				6A7B87342BEB5E8700562881 /* SceneDelegate.swift */,
 				6AB1B82E2BEB5EF3005A1E6D /* ListTableViewCell.swift */,
 				6AFBDAD92BF3428800113659 /* PublicFunc.swift */,
+				6A87CB722DF289F900DBA443 /* Extension */,
+				6A87CB6F2DF288B900DBA443 /* Utils */,
 				6AB1B8342BEB5F41005A1E6D /* ViewController.swift */,
 				6A396DA52DF197A600479139 /* 字符串反转 */,
 				6A396DA22DF1978A00479139 /* IP判断 */,
@@ -368,6 +376,23 @@
 				6A7B87402BEB5E8800562881 /* Info.plist */,
 			);
 			path = CLX;
+			sourceTree = "<group>";
+		};
+		6A87CB6F2DF288B900DBA443 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				6A87CB702DF288CE00DBA443 /* Regex.swift */,
+				6A87CB752DF291F300DBA443 /* RegexEnum.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		6A87CB722DF289F900DBA443 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				6A87CB732DF28A1D00DBA443 /* StringExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		6AA740002BF1B40B003D6949 /* NSPredicate */ = {
@@ -705,6 +730,8 @@
 				6A70AD6E2BF5EC34000C3374 /* ClassicFirework.swift in Sources */,
 				6ABC3A422C06F69800D97974 /* Task.swift in Sources */,
 				6ABC3A462C06FBD900D97974 /* Provider.swift in Sources */,
+				6A87CB712DF288CE00DBA443 /* Regex.swift in Sources */,
+				6A87CB762DF291F300DBA443 /* RegexEnum.swift in Sources */,
 				6ABC3A442C06F6EF00D97974 /* NetAPI.swift in Sources */,
 				6A70AD742BF5EC34000C3374 /* FountainFireworkAnimator.swift in Sources */,
 				6A70AD722BF5EC34000C3374 /* ClassicSparkTrajectoryFactoryProtocol.swift in Sources */,
@@ -719,6 +746,7 @@
 				6AB1B8322BEB5EF3005A1E6D /* ListTableViewCell.swift in Sources */,
 				6A70AD7C2BF5EC34000C3374 /* SparkView.swift in Sources */,
 				6AA7400B2BF1DBD2003D6949 /* NeedsScendsView.swift in Sources */,
+				6A87CB742DF28A1D00DBA443 /* StringExtension.swift in Sources */,
 				6AFBDAE62BF357C800113659 /* VImageClass.swift in Sources */,
 				6A70AD702BF5EC34000C3374 /* ClassicFireworkController.swift in Sources */,
 				6AAF8F6B2C3677EA00577CD1 /* NSObject+Crash.m in Sources */,

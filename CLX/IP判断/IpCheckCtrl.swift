@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 class IpCheckCtrl: UIViewController {
 
@@ -93,12 +94,11 @@ class IpCheckCtrl: UIViewController {
                 return
             }
             /// 判断是否是数字组成
-            if item.map({ char in
-                return char.isNumber
-            }).contains(where: {$0 == false}) == true {
+            if !item.isDigital {
                 resultText.text = "ip地址不合法，包含非数字字符"
                 return
             }
+            
             /// 判断是否是[0,255]区间
             let value: Int = Int(item) ?? -1
             if value < 0 || value > 255 {
@@ -112,6 +112,47 @@ class IpCheckCtrl: UIViewController {
         
     @objc
     func ipv6Action() {
-        
+        if inputFile.text?.isEmpty == true {
+            resultText.text = "请输入需要检测的ip地址"
+            return
+        }
+        /// 裁剪判断是否是8组
+        guard let list = inputFile.text?.components(separatedBy: ":") as? [String] else {
+            resultText.text = "ip地址格式不合法"
+            return
+        }
+        if list.count < 8 {
+            resultText.text = "ip地址长度不合法"
+            return
+        }
+        if list.count(where: {$0.isEmpty}) > 1 {
+            resultText.text = "ip地址包含多个::"
+            return
+        }
+        for item in list {
+            if item.count > 4 {
+                resultText.text = "ip地址单个长度超过4"
+                return
+            }
+            if !item.isLowercaseLetterAndDigital && !item.isDigital && !item.isMixedLetters && !item.isEmpty {
+                resultText.text = "ip地址不合法，只能包含数字和小写字母"
+                return
+            }
+        }
+        resultText.text = "恭喜💐，ip地址是合法的"
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        var ipString = ""
+        for index in 0...8 {
+            if index % 2 == 0 {
+                ipString += "\(ipString.isEmpty ? "":":")\(index)\(index)\(index)\(index)"
+            } else {
+                ipString += ":"
+            }
+        }
+        print(ipString)
+        let list = ipString.components(separatedBy: ":")
+        print(list)
     }
 }
